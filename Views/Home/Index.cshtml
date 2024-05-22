@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Tratoria"] = "Tratoria";
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/css/homehage.css" asp-append-version="true" />
+    <title>Homepage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@300&family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <main>
+            <div class="selector__1">
+                <div class="selector__1-leaf1">
+                    <img src="~/images/Leaf.svg">
+                </div>
+                <div class="selector__1-man">
+                    <img src="~/images/man.png">
+                </div>
+                <div class="selector__1-inf">
+                    <h1>Наша кухня</h1>
+                    <p>Итальянская кухня - это путешествие в мир изысканных вкусов, где каждое блюдо - настоящее произведение искусства. От нежных паст до ароматной пиццы, итальянская кухня поражает своей страстью к качественным ингредиентам и неповторимым ароматам.</p>
+                </div>
+                <div class="selector__1-leaf2">
+                    <img src="~/images/Leaf.svg">
+                </div>
+            </div>
+            <div class="selector__2">
+                <div class="selector__2-tb">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="selector__2-td_first">
+                                    <img src="~/images/fish.png">
+                                    <h1>Хорошее качество</h1>
+                                    <p>Мы стремимся к отличному качеству в каждой тарелке: отборные ингредиенты и искусство в приготовлении для ваших наслаждений.</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="selector__2-td_second">
+                                    <img src="~/images/carrot.png">
+                                    <h1>Сезонные овощи</h1>
+                                    <p>Наши сезонные овощи - гарант качества и свежести, которые подчеркивают вкус и разнообразие наших тарелок.</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="selector__2-td_third">
+                                    <img src="~/images/lemon.png">
+                                    <h1>Свежие фрукты</h1>
+                                    <p>Свежие фрукты - наш секрет непревзойденного вкуса. Они добавляют яркие нотки свежести к каждой тарелке.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="selector__3">
+                <img src="~/images/Mint.svg" width="280px">
+                <div class="selector__3-inf">
+                    <h1>Наше меню</h1>
+                    <p>Популярные блюда нашего заведения</p>
+                </div>
+                <div class="selector__3-tb">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="selector__3-tb__first">
+                                        <h3>890₽</h3>
+                                        <p>.......................................................................................................................................................</p>
+                                        <h1>Капрезе с моцареллой</h1>
+                                        <p>лёгкая закуска из помидоров, моцареллы, оливкового масла и базилика.</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="selector__3-tb__second">
+                                        <h3>1890₽</h3>
+                                        <p>..................................................................................................................................................................</p>
+                                        <h1>Филе осетра в белом винном соусе</h1>
+                                        <p>изысканное блюдо для настоящих гурманов.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="selector__3-tb__third">
+                                        <h3>1390₽</h3>
+                                        <p>.......................................................................................................................................................</p>
+                                        <h1>Телятина Оссобуко</h1>
+                                        <p>нежное телячье мясо в красном вине.</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="selector__3-tb__forth">
+                                        <h3>550₽</h3>
+                                        <p>..................................................................................................................................................................</p>
+                                        <h1>Шоколадный фондан</h1>
+                                        <p>нежный шоколадный центр в хрустящей оболочке.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="selector__3-nav">
+                    <a href="@Url.Action("Menu", "Home")">
+                        <img src="~/images/Vector.svg">
+                    </a>
+                </div>
+            </div>
+            <div class="selector__4">
+                <div class="selector__4-img">
+                    <img src="~/images/tarelki.png" width="600px" />
+                </div>
+                <div class="selector__4-inf-1">
+                    <img src="~/images/sel4-1.png" />
+                    <h1>Начни гастрономическое путешествие сейчас</h1>
+                </div>
+                <div class="selector__4-inf-2">
+                    <h3>Подчеркните вкус ваших приготовленных блюд с нашими отборными специями, которые добавят неповторимую гармонию в каждую тарелку.</h3>
+                    <img src="~/images/sel4-2.png" width="400px" />
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

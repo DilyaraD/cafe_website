@@ -1,0 +1,82 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+}
+
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.main {
+    max-width: 1600px;
+    margin: 0 auto; 
+    padding: 0 20px; 
+    padding-bottom: 90px;
+}
+
+.sel__1 {
+    height 700px;
+}
+
+.sel__1-inf {
+    position: relative;
+    width: 60%;
+    color: white;
+    font-family: 'Rufina', serif;
+    font-style: italic;
+    font-weight: 300;
+    margin: 0 auto;
+    top: -300px;
+    text-align: center;
+}
+
+    .sel__1-inf h1 {
+        font-size: 80px;
+        margin-bottom: 20px;
+    }
+
+.sel__2-menu {
+    font-family: 'Rufina', serif;
+    font-style: italic;
+    font-weight: 300;
+    margin-top: -100px;
+    font-size: 24px;
+}
+
+.navButton {
+    border: none;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none; 
+    margin-right: 30px;
+}
+
+    .navButton:last-child {
+        margin-right: 0; 
+    }
+
+    .navButton:focus {
+        outline: none;
+    }
+
+.starter__1-img {
+    text-align: center; 
+}
+
+    .starter__1-img img {
+        margin: 0 15px; 
+    }
+
+.navButton {
+    color: #ccc;
+}
+
+    .navButton.active {
+        color: black; 
+    }

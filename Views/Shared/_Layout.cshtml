@@ -1,0 +1,571 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Trattoria"] - Trattoria</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Cafe_website.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@300&family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        #Reserv {
+            width: 200px;
+            border-radius: 0;
+        }
+
+        footer {
+            width: 100%;
+            height: 90px;
+            background-color: #233000;
+            text-align: center;
+            font-family: 'Rufina', serif;
+            font-style: italic;
+            font-weight: 300;
+            position: relative;
+        }
+
+            footer p {
+                font-size: 36px;
+                color: white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-family: 'Rufina', serif;
+            font-style: italic;
+            font-size: 20px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .reservation-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+            .reservation-table td {
+                padding-right: 10px;
+                padding-left: 10px;
+                padding-bottom: 7px;
+            }
+
+
+
+        #reservationPopup {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(161, 160, 160, 0.8);
+            z-index: 9999;
+            overflow: auto;
+        }
+
+        #reservationForm {
+            width: 50%;
+            margin: 50px auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: white">
+        <a class="navbar-brand" style="font-family: 'Rufina', serif; font-style: italic; font-weight: 300; font-size: 40px" href="@Url.Action("Index", "Home")">Trattoria</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Contacts", "Home")">Контакты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("About", "Home")">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("PopularDishes", "Home")">Популярные блюда</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Menu", "Home")">Меню</a>
+                </li>
+            </ul>
+        </div>
+
+        <button type="button" id="Reserv" onclick="cP()" class="btn btn-outline-secondary">Резервирование</button>
+        <script>
+            function cP() {
+                document.getElementById("rty").style.display = "flex";
+                // document.getElementById("cl-btn-7").style.display = "flex";
+            }
+        </script>
+    </header>
+    <div id="rty">
+        <style>
+            .cl-btn-7 {
+                /* display: none; */
+                float: right;
+                margin-top: 20px;
+                margin-right: 20px;
+                width: 40px;
+                height: 40px;
+                border-radius: 40px;
+                position: relative;
+                z-index: 1;
+                margin: 20px auto;
+                cursor: pointer;
+            }
+
+                .cl-btn-7:before {
+                    content: '+';
+                    color: rgba(19, 48, 0, 0.9);
+                    position: absolute;
+                    z-index: 2;
+                    transform: rotate(45deg);
+                    font-size: 50px;
+                    line-height: 1;
+                    top: -5px;
+                    left: 6px;
+                    transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+                }
+
+                .cl-btn-7:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 100%;
+                    background: rgba(19, 48, 0, 0.9);
+                    z-index: 1;
+                    transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+                    transform: scale(0.01);
+                }
+
+                .cl-btn-7:hover:after {
+                    transform: scale(1);
+                }
+
+                .cl-btn-7:hover:before {
+                    transform: scale(0.8) rotate(45deg);
+                    color: #fff;
+                }
+        </style>
+        <script>
+            function closePopup() {
+                document.getElementById("rty").style.display = "none";
+            }
+        </script>
+        <div id="reservationPopup">
+
+            <div id="reservationForm">
+                <form asp-controller="Home" asp-action="ToReserv">
+                    <table class="reservation-table">
+                        <tr>
+                            <td colspan="2">
+                                <div class="cl-btn-7" onclick="closePopup()" ></div>
+                                @* <div style="text-align: center; font-family: 'Rufina', serif;  font-size: 36px; font-style: italic; font-weight: 300; padding-top: 30px; ">Резервирование</div> *@
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group" style=" font-family: 'Rufina', serif; font-style: italic;">
+                                    <label style="font-family: 'Rufina', serif; font-style: italic; font-weight: 300; font-size: 20px; ">Имя:</label>
+                                    <input style="font-family: 'Rufina', serif; font-style: italic;font-size: 20px;" type="text" class="form-control" name="firstName" id="firstName" placeholder="Имя" required>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group" style=" font-family: 'Rufina', serif; font-style: italic;">
+                                    <label style="font-family: 'Rufina', serif; font-style: italic; font-weight: 300; font-size: 20px; ">Фамилия:</label>
+                                    <input style=" font-family: 'Rufina', serif; font-style: italic;font-size: 20px;" type="text" class="form-control" name="lastName" id="lastName" placeholder="Фамилия" required>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style=" font-family: 'Rufina', serif; font-style: italic;">
+                                <div class="form-group">
+                                    <label style="font-family: 'Rufina', serif; font-style: italic; font-weight: 300; font-size: 20px; ">Телефон:</label>
+                                    <input style="font-family: 'Rufina', serif; font-style: italic; font-size: 20px;" type="tel" class="form-control" name="phone" id="phone" placeholder="Номер телефона" required>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group" style=" font-family: 'Rufina', serif; font-style: italic;">
+                                    <label style="font-family: 'Rufina', serif; font-style: italic; font-weight: 300; font-size: 20px; ">Дата:</label>
+                                    <input style="font-family: 'Rufina', serif; font-style: italic; font-size: 20px;" type="date" class="form-control" id="date" name="date" required>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group" style=" font-family: 'Rufina', serif; font-style: italic;">
+                                    <label style="font-family: 'Rufina', serif; font-style: italic; font-weight: 300; font-size: 20px; ">Время резервирования:</label>
+                                    <select style="font-family: 'Rufina', serif; font-style: italic; font-size: 20px;" type="time" name="time" class="form-control" required>
+                                        <option>8:00</option>
+                                        <option>9:00</option>
+                                        <option>10:00</option>
+                                        <option>11:00</option>
+                                        <option>12:00</option>
+                                        <option>13:00</option>
+                                        <option>14:00</option>
+                                        <option>15:00</option>
+                                        <option>16:00</option>
+                                        <option>17:00</option>
+                                        <option>18:00</option>
+                                        <option>19:00</option>
+                                        <option>20:00</option>
+                                        <option>21:00</option>
+                                        <option>22:00</option>
+                                        <option>23:00</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="form-group" style=" font-family: 'Rufina', serif; font-style: italic;">
+                                    <label style="font-family: 'Rufina', serif; font-style: italic; font-weight: 300; font-size: 20px; ">Количество гостей:</label>
+                                    <select style="font-family: 'Rufina', serif; font-style: italic; font-size: 20px;" class="form-control" name="guests" id="guests" required>
+                                        <option title="стол 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11">1</option>
+                                        <option title="стол 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11">2</option>
+                                        <option title="стол 1, 2, 3, 4, 5, 9, 10, 11">3</option>
+                                        <option title="стол 1, 2, 3, 4, 5, 9, 10, 11">4</option>
+                                        <option title="стол 1, 4, 5, 9, 10, 11">5</option>
+                                        <option title="стол 1, 4, 5, 9, 10, 11">6</option>
+                                        <option title="стол 1, 9, 10, 11">7</option>
+                                        <option title="стол 1, 9, 10, 11">8</option>
+                                        <option title="стол 1">9</option>
+                                        <option title="стол 1">10</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="form-group" style=" font-family: 'Rufina', serif; font-style: italic;">
+                                    <label style="font-family: 'Rufina', serif; font-style: italic; font-weight: 300; font-size: 20px; ">Номер стола:</label>
+                                    <select style="font-family: 'Rufina', serif; font-style: italic; font-size: 20px;" class="form-control" name="table" id="table" required>
+                                        <option title="для 1-10 человек">1</option>
+                                        <option title="для 1-4 человек">2</option>
+                                        <option title="для 1-4 человек">3</option>
+                                        <option title="для 1-6 человек">4</option>
+                                        <option title="для 1-6 человек">5</option>
+                                        <option title="для 1-2 человек">6</option>
+                                        <option title="для 1-2 человек">7</option>
+                                        <option title="для 1-2 человек">8</option>
+                                        <option title="для 1-8 человек">9</option>
+                                        <option title="для 1-8 человек">10</option>
+                                        <option title="для 1-8 человек">11</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button style="background-color:  rgba(19, 48, 0, 0.9); font-family: 'Rufina', serif; font-style: italic; font-weight: 300; font-size: 25px; color: white; text-align: center; display: block; margin: 0 auto;" type="submit" class="btn btn-primary">Забронировать</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    var firstName = document.getElementById('firstName');
+                    var lastName = document.getElementById('lastName');
+                    var submitButton = document.getElementById('submitButton');
+
+                    firstName.addEventListener('input', function (event) {
+                        var sanitizedValue = event.target.value.replace(/[^A-Za-z ]/g, '').slice(0, 45);
+                        var onlyEnglishValid = /^[A-Za-z ]*$/.test(event.target.value);
+
+                        if (!onlyEnglishValid) {
+                            showError(firstName, 'Пожалуйста, используйте только английские буквы');
+                        } else if (sanitizedValue !== event.target.value) {
+                            showError(firstName, 'Максимум 45 символов');
+                        } else {
+                            showError(firstName, '');
+                        }
+                        firstName.value = sanitizedValue;
+                    });
+
+                    ///////
+                    lastName.addEventListener('input', function (event) {
+                        var sanitizedValue = event.target.value.replace(/[^A-Za-z ]/g, '').slice(0, 45);
+                        var onlyEnglishValid = /^[A-Za-z ]*$/.test(event.target.value);
+                        if (!onlyEnglishValid) {
+                            showError(lastName, 'Пожалуйста, используйте только английские буквы');
+                        }
+                        else if (sanitizedValue !== event.target.value) {
+                            showError(lastName, 'Максимум 45 символов');
+                        } else {
+                            showError(lastName, '');
+                        }
+
+                        lastName.value = sanitizedValue;
+                    });
+                    //////////
+                    phone.addEventListener('input', function (event) {
+                        phone.value = phone.value.replace(/\D/g, '').slice(0, 11);
+
+                        if (phone.value.length >= 11) {
+                            showError(phone, '');
+                        } else {
+                            showError(phone, 'Пожалуйста, введите 11 цифр для номера телефона');
+                        }
+                    });
+
+                    //////
+                    var today = new Date();
+                    var tomorrow = new Date(today);
+                    tomorrow.setDate(today.getDate() + 1);
+
+                    var maxDate = new Date(tomorrow);
+                    maxDate.setDate(tomorrow.getDate() + 300);
+
+                    var tomorrowStr = tomorrow.toISOString().split('T')[0];
+                    var maxDateStr = maxDate.toISOString().split('T')[0];
+
+                    document.getElementById("date").min = tomorrowStr;
+                    document.getElementById("date").max = maxDateStr;
+                    //////////
+
+                    document.getElementById('guests').addEventListener('change', function () {
+                        var selectedGuests = parseInt(this.value);
+                        var selectedTable = parseInt(document.getElementById('table').value);
+                        var maxSeatsForTable;
+                        switch (selectedTable) {
+                            case 1: maxSeatsForTable = 10; break;
+                            case 2: maxSeatsForTable = 4; break;
+                            case 3: maxSeatsForTable = 4; break;
+                            case 4: maxSeatsForTable = 6; break;
+                            case 5: maxSeatsForTable = 6; break;
+                            case 6: maxSeatsForTable = 2; break;
+                            case 7: maxSeatsForTable = 2; break;
+                            case 8: maxSeatsForTable = 2; break;
+                            case 9: maxSeatsForTable = 8; break;
+                            case 10: maxSeatsForTable = 8; break;
+                            case 11: maxSeatsForTable = 8; break;
+                            default: maxSeatsForTable = 0;
+                        }
+                        if (selectedGuests > maxSeatsForTable) {
+                            showError(this, 'Количество гостей превышает максимальное количество мест за столом.');
+                        } else {
+                            if (this.parentNode.querySelector('.error-message')) {
+                                this.parentNode.querySelector('.error-message').remove();
+                            }
+                        }
+                    });
+
+                    document.getElementById('table').addEventListener('change', function () {
+                        var selectedGuests = parseInt(document.getElementById('guests').value);
+                        var selectedTable = parseInt(this.value);
+                        var maxSeatsForTable;
+                        switch (selectedTable) {
+                            case 1: maxSeatsForTable = 10; break;
+                            case 2: maxSeatsForTable = 4; break;
+                            case 3: maxSeatsForTable = 4; break;
+                            case 4: maxSeatsForTable = 6; break;
+                            case 5: maxSeatsForTable = 6; break;
+                            case 6: maxSeatsForTable = 2; break;
+                            case 7: maxSeatsForTable = 2; break;
+                            case 8: maxSeatsForTable = 2; break;
+                            case 9: maxSeatsForTable = 8; break;
+                            case 10: maxSeatsForTable = 8; break;
+                            case 11: maxSeatsForTable = 8; break;
+                            default: maxSeatsForTable = 0;
+                        }
+                        if (selectedGuests > maxSeatsForTable) {
+                            showError(document.getElementById('guests'), 'Количество гостей превышает максимальное количество мест за столом.');
+                        } else {
+                            if (document.getElementById('guests').parentNode.querySelector('.error-message')) {
+                                document.getElementById('guests').parentNode.querySelector('.error-message').remove();
+                            }
+                        }
+                    });
+
+                    function showError(input, message) {
+                        var errorElement = document.createElement('div');
+                        errorElement.className = 'error-message';
+                        errorElement.innerText = message;
+
+                        if (input.parentNode.querySelector('.error-message')) {
+                            input.parentNode.querySelector('.error-message').remove();
+                        }
+
+                        input.parentNode.appendChild(errorElement);
+                    }
+                });
+
+
+
+                document.addEventListener("DOMContentLoaded", function () {
+                    const submitButton = document.querySelector('.btn-primary');
+                    const inputs = document.querySelectorAll('input');
+                    const selects = document.querySelectorAll('select');
+
+                    function validateInputs() {
+                        let isValid = true;
+
+                        inputs.forEach(input => {
+                            if (!input.checkValidity()) {
+                                isValid = false;
+                            }
+                        });
+
+                        selects.forEach(select => {
+                            if (!select.checkValidity()) {
+                                isValid = false;
+                            }
+                        });
+
+                        const errorMessages = document.querySelectorAll('.error-message');
+                        errorMessages.forEach(error => {
+                            if (error.innerText !== '') {
+                                isValid = false;
+                            }
+                        });
+
+                        submitButton.disabled = !isValid;
+                    }
+
+                    inputs.forEach(input => {
+                        input.addEventListener('input', validateInputs);
+                    });
+
+                    selects.forEach(select => {
+                        select.addEventListener('change', validateInputs);
+                    });
+
+                    validateInputs();
+                });
+            </script>
+        </div>
+        <script>
+
+        </script>
+    </div>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Rufina', serif;
+            font-size: 24px;
+            font-style: italic;
+            align-content: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 40%;
+            font-family: 'Rufina', serif;
+            font-style: italic;
+            max-width: 600px;
+        }
+
+        .close-button {
+            background-color: rgba(19, 48, 0, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: 'Rufina', serif;
+            font-style: italic;
+        }
+    </style>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p id="modalText"></p>
+            <button class="close-button">ОК</button>
+        </div>
+    </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            const modalText = document.getElementById('modalText');
+            modalText.textContent = data.message;
+            document.getElementById('rty').style.display = 'none';
+            document.getElementById('myModal').style.display = 'flex';
+
+            document.querySelector('.close-button').addEventListener('click', function () {
+                document.getElementById('myModal').style.display = 'none';
+                document.querySelector('form').reset();
+            });
+        });
+        document.querySelector('.close-button').addEventListener('click', function () {
+            document.getElementById('myModal').style.display = 'none';
+            document.getElementById('firstName').value = '';
+            document.getElementById('lastName').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('date').value = '';
+            document.getElementById('time').value = '';
+            document.getElementById('guests').value = '';
+            document.getElementById('table').value = '';
+        });
+        document.getElementById('myModal').addEventListener('click', function () {
+            document.getElementById('rty').style.display = 'flex';
+        });
+    </script>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="foot__p">
+            <p>Trattoria</p>
+        </div>
+    </footer>
+    <script>
+        $("#Reserv").click(function () {
+            $("#reservationPopup").fadeIn();
+        });
+
+        $("#reservationPopup").click(function (event) {
+            if (event.target === this) {
+                $(this).fadeOut();
+            }
+        });</script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+﻿@{
+    ViewData["Tratoria"] = "Меню";
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/css/Menu.css" asp-append-version="true" />
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="site.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@300&family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <main>
+            <div class="sel__1">
+                <div class="sel__1-img">
+                    <img src="~/images/mainMenu.png" width="100%" />
+                </div>
+                <div class="sel__1-inf">
+                    <h1>МЕНЮ</h1>
+                </div>
+            </div>
+            <div class="sel__2">
+                <div class="sel__2-menu" style="text-align: center;">
+                    <button id="startersButton" class="navButton">Стартеры</button>
+                    <button id="pizzaButton" class="navButton">Пиццы</button>
+                    <button id="dinnerButton" class="navButton">Ужин</button>
+                    <button id="drinksButton" class="navButton">Напитки</button>
+                    <button id="dessertsButton" class="navButton">Десерты</button>
+                </div>
+                <div id="startersList" style="display: block; text-align: center; margin-top: 60px; font-family: 'Rufina', serif; font-style: italic; font-weight: 300; ">
+                    <div class="starter__1" style="display: inline-block; text-align: left;">
+                        <h3>
+                            Брускетта............................................................................................................................. 500гр    670
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            Кусочки свежего хлеба, обжаренные на гриле, свежие помидоры, нарезанные в кубиках, свежий базилик, оливковое масло, соль и перец
+                        </p>
+
+                        <h3>
+                            Капрезе.................................................................................................................................. 500гр    1080
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            Фета сыр, свежие помидоры, нарезанные кружочками, свежий базилик, оливковое масло, соль и перец
+                        </p>
+                        <h3>
+                            Карпаччо............................................................................................................................... 500гр    2345
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            Тунец, соус на выбор, например, соус на основе лимона и оливкового масла или соус бальзамического уксуса
+                        </p>
+                        <div class="starter__1-img" style=" margin-bottom: 60px;">
+                            <img src="~/images/FStarter1.png" width="450px" />
+                            <img src="~/images/FStater3.png" width="450px" />
+                        </div>
+                        <h3>
+                            Минестроне......................................................................................................................... 500гр    1590
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            Свежие овощи: морковь, картофель, цветная капуста, брокколи, бульон, рис, соль, перец и итальянские травы
+                        </p>
+                        <h3>
+                            Кальмары фритто........................................................................................................... 500гр    2190
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            Кольца кальмара, обжаренные во фритюре, свежий лимон, соус на выбор, например, маринара или тартар
+                        </p>
+                        <div class="starter__1-img" style=" margin-bottom: 40px;">
+                            <img src="~/images/FStarter5.png" width="450px" />
+                            <img src="~/images/FStarter6.png" width="450px" />
+                        </div>
+                    </div>
+                </div>
+                <div id="pizzaList" style="display: none; text-align: center; margin-top: 60px; font-family: 'Rufina', serif; font-style: italic; font-weight: 300; ">
+                    <div class="starter__1" style="display: inline-block; text-align: left;">
+                        <h3>
+                            Маргарита............................................................................................................................. 500гр    980
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            томатный соус, моцарелла, базилик.
+                        </p>
+
+                        <h3>
+                            Пепперони.............................................................................................................................. 500гр    1080
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            томатный соус, моцарелла, пепперони (колбаса из говядины), оливки
+                        </p>
+                        <h3>
+                            Гавайская.............................................................................................................................. 500гр    1490
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            томатный соус, моцарелла, ветчина, ананас
+                        </p>
+                        <div class="starter__1-img" style=" margin-bottom: 60px;">
+                            <img src="~/images/FPizza3.png" width="450px" />
+                            <img src="~/images/FPizza2.png" width="450px" />
+                        </div>
+                        <h3>
+                            Карбонара......................................................................................................................... 500гр    1590
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            томатный соус, моцарелла, бекон, яйцо, сыр пармезан
+                        </p>
+                        <h3>
+                            Капричоза......................................................................................................................... 500гр    1690
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            томатный соус, моцарелла, ветчина, шампиньоны, артишоки, оливки.
+                        </p>
+                        <h3>
+                            Кваттро формаги......................................................................................................... 500гр    1290
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            томатный соус, моцарелла, горгонзола, пармезан, эменталь.
+                        </p>
+                        <h3>
+                            Мексиканская................................................................................................................. 500гр    1690
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            томатный соус, моцарелла, фасоль, кукуруза, острый перец, томаты, говядина
+                        </p>
+                        <div class="starter__1-img" style=" margin-bottom: 40px;">
+                            <img src="~/images/FPizza4.png" width="450px" />
+                            <img src="~/images/FPizza5.png" width="450px" />
+                        </div>
+                        <h3>
+                            Маринара........................................................................................................................ 500гр    1890
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            томатный соус, моцарелла, мидии, кальмар, креветки, каперсы
+                        </p>
+
+                        <h3>
+                            Блэк ангус....................................................................................................................... 500гр    1690
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            томатный соус, моцарелла, говядина, грибы, лук, пармезан
+                        </p>
+                        <h3>
+                            Филе миньон.................................................................................................................. 500гр    1890
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            томатный соус, моцарелла, филе миньон, грибы, лук, перец
+                        </p>
+
+                        <div class="starter__1-img" style=" margin-bottom: 40px;">
+                            <img src="~/images/FPizza1.png" width="450px" />
+                            <img src="~/images/FPizza6.png" width="450px" />
+                        </div>
+                    </div>
+                </div>
+                <div id="dinnerList" style="display: none; text-align: center; margin-top: 60px; font-family: 'Rufina', serif; font-style: italic; font-weight: 300; ">
+                    <div class="starter__1" style="display: inline-block; text-align: left;">
+                        <h3>
+                            Лазанья....................................................................................................................................... 500гр    1080
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            слоеное блюдо, состоящее из пасты, мясного соуса, белого соуса (бешамель) и сыра. Готовится с мясом (говядиной или свининой), но может быть и вегетарианской
+                        </p>
+
+                        <h3>
+                            Ризотто..................................................................................................................................... 500гр    1280
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            это рисовое блюдо, приготовленное на основе бульона с добавлением различных ингредиентов, таких как морепродукты, овощи, грибы и сыр
+                        </p>
+
+                        <div class="starter__1-img" style=" margin-bottom: 60px;">
+                            <img src="~/images/FStarter4.png" width="450px" />
+                            <img src="~/images/FStarter2.png" width="450px" />
+                        </div>
+                        <h3>
+                            Оссобуко................................................................................................................................... 500гр    1590
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            традиционное миланское блюдо, состоящее из тушеного мяса телятины с костью, подаваемого с гремолатой и ризотто
+                        </p>
+                        <h3>
+                            Каннеллони.............................................................................................................................. 500гр    1690
+                        </h3>
+                        <p style=" width: 65%; margin-bottom: 60px;">
+                            трубочки из свежей пасты, заполненные мясным соусом или начинкой, обычно с мясом и сыром, а затем запеченные с томатным соусом и сыром
+                        </p>
+
+                        <div class="starter__1-img" style=" margin-bottom: 40px;">
+                            <img src="~/images/FDinner.png" width="450px" />
+                            <img src="~/images/FDinner6.png" width="450px" />
+                        </div>
+
+                    </div>
+                </div>
+                <div id="drinksList" style="display: none; text-align: center; margin-top: 60px; font-family: 'Rufina', serif; font-style: italic; font-weight: 300; ">
+                    <div class="starter__1" style="display: inline-block; text-align: left;">
+                        <h1 style="margin-bottom: 20px;">Кофе</h1>
+                        <h3 style="margin-bottom: 20px;">
+                            Эспрессо............................................................................................................................................ 50мл    260
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+                            Американо........................................................................................................................................ 200мл    360
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+                            Капучино........................................................................................................................................... 200мл    360
+                        </h3>
+                        <h3 style="margin-bottom: 50px;">
+                            Латте............................................................................................................................................... 200мл    360
+                        </h3>
+                        <div class="starter__1-img" style=" margin-bottom: 40px;">
+                            <img src="~/images/FCoffee.png" width="450px" />
+                            <img src="~/images/Fnapit6.png" width="450px" />
+                        </div>
+                        <h1 style="margin-bottom: 20px;">Чай</h1>
+
+                        <h3 style="margin-bottom: 20px;">
+                            Зеленый чай..................................................................................................................................... 200мл    200
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+                            Черный чай...................................................................................................................................... 200мл    230
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+                            Мятный чай.................................................................................................................................... 200мл    210
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+                            Ромашковый чай............................................................................................................................ 200мл    160
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+                            Имбирный чай................................................................................................................................ 200мл    260
+                        </h3>
+                        <h3 style="margin-bottom: 50px;">
+                            Ягодный чай.................................................................................................................................... 200мл    360
+                        </h3>
+                        <div class="starter__1-img" style=" margin-bottom: 40px;">
+                            <img src="~/images/FTea.png" width="450px" />
+                            <img src="~/images/Fnapit5.png" width="450px" />
+                        </div>
+                        <h1 style="margin-bottom: 20px;">Другое</h1>
+
+                        <h3 style="margin-bottom: 20px;">
+                            Беллини............................................................................................................................................ 150мл    350
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+
+                            Тоскана........................................................................................................................................... 200мл    400
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+                            Россини........................................................................................................................................... 150мл    450
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+                            Мохито........................................................................................................................................... 200мл    350
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+
+                            Амаретто сауро........................................................................................................................... 50мл    260
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+
+                            Апероль шприц.............................................................................................................................. 200мл    180
+                        </h3>
+                        <h3 style="margin-bottom: 50px;">
+                            Лимончелло................................................................................................................................... 50мл    360
+                        </h3>
+                        <div class="starter__1-img" style=" margin-bottom: 40px;">
+                            <img src="~/images/Fnapit2.png" width="450px" />
+                            <img src="~/images/Fnapit3.png" width="450px" />
+                        </div>
+                    </div>
+                </div>
+                <div id="dessertsList" style="display: none; text-align: center; margin-top: 60px; font-family: 'Rufina', serif; font-style: italic; font-weight: 300; ">
+                    <div class="starter__1" style="display: inline-block; text-align: left;">
+                        <h1 style="margin-bottom: 20px;">Торты</h1>
+                        <h3 style="margin-bottom: 20px;">
+                            Тирамису............................................................................................................................................ 200г    260
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+
+                            Каноли................................................................................................................................................ 200г    360
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+
+                            Чизкейк с малиной........................................................................................................................... 200г    360
+                        </h3>
+                        <h3 style="margin-bottom: 50px;">
+
+                            Торт "Кассата"................................................................................................................................ 200г    360
+                        </h3>
+                        <div class="starter__1-img" style=" margin-bottom: 40px;">
+                            <img src="~/images/FTiram.png" width="450px" />
+                            <img src="~/images/FDes3.png" width="450px" />
+                        </div>
+                        <h1 style="margin-bottom: 20px;">Заварные изделия</h1>
+                        <h3 style="margin-bottom: 20px;">
+
+                            Круассаны.......................................................................................................................................... 200г    260
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+
+                            Сфолиателла с кремом................................................................................................................... 200г    360
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+
+                            Пирожное "Скалли" ......................................................................................................................... 200г    360
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+
+                            Пирог с рикоттой и вишней........................................................................................................... 200г    360
+                        </h3>
+                        <h3 style="margin-bottom: 50px;">
+
+                            Пирог с яблоком................................................................................................................................ 200г    360
+                        </h3>
+                        <div class="starter__1-img" style=" margin-bottom: 40px;">
+                            <img src="~/images/FDes1.png" width="450px" />
+                            <img src="~/images/FDes4.png" width="450px" />
+                        </div>
+                        <h1 style="margin-bottom: 20px;">Пирожные</h1>
+                        <h3 style="margin-bottom: 20px;">
+
+                            Канноли с  шоколадом...................................................................................................................... 200г    360
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+
+                            Тарталетка с кремом..................................................................................................................... 200г    360
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+                            Сфера из белого шоколада............................................................................................................. 200г    360
+                        </h3>
+                        <h3 style="margin-bottom: 20px;">
+
+                            Мини-круассаны с кремом.............................................................................................................. 200г    360
+                        </h3>
+                        <h3 style="margin-bottom: 50px;">
+                            Шоколадный фондан........................................................................................................................ 200г    360
+                        </h3>
+                        <div class="starter__1-img" style=" margin-bottom: 40px;">
+                            <img src="~/images/FDes6.png" width="450px" />
+                            <img src="~/images/FDes5.png" width="450px" />
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    document.getElementById('startersButton').addEventListener('click', function () {
+                        document.getElementById('startersList').style.display = 'block';
+                        document.getElementById('pizzaList').style.display = 'none';
+                        document.getElementById('dinnerList').style.display = 'none';
+                        document.getElementById('drinksList').style.display = 'none';
+                        document.getElementById('dessertsList').style.display = 'none';
+                    });
+
+                    document.getElementById('pizzaButton').addEventListener('click', function () {
+                        document.getElementById('startersList').style.display = 'none';
+                        document.getElementById('pizzaList').style.display = 'block';
+                        document.getElementById('dinnerList').style.display = 'none';
+                        document.getElementById('drinksList').style.display = 'none';
+                        document.getElementById('dessertsList').style.display = 'none';
+                    });
+
+                    document.getElementById('dinnerButton').addEventListener('click', function () {
+                        document.getElementById('startersList').style.display = 'none';
+                        document.getElementById('pizzaList').style.display = 'none';
+                        document.getElementById('dinnerList').style.display = 'block';
+                        document.getElementById('drinksList').style.display = 'none';
+                        document.getElementById('dessertsList').style.display = 'none';
+                    });
+
+                    document.getElementById('drinksButton').addEventListener('click', function () {
+                        document.getElementById('startersList').style.display = 'none';
+                        document.getElementById('pizzaList').style.display = 'none';
+                        document.getElementById('dinnerList').style.display = 'none';
+                        document.getElementById('drinksList').style.display = 'block';
+                        document.getElementById('dessertsList').style.display = 'none';
+                    });
+
+                    document.getElementById('dessertsButton').addEventListener('click', function () {
+                        document.getElementById('startersList').style.display = 'none';
+                        document.getElementById('pizzaList').style.display = 'none';
+                        document.getElementById('dinnerList').style.display = 'none';
+                        document.getElementById('drinksList').style.display = 'none';
+                        document.getElementById('dessertsList').style.display = 'block';
+                    });
+                    $(document).ready(function () {
+                        $("#startersButton").addClass("active");
+
+                        $(".navButton").click(function () {
+                            $(".navButton").removeClass("active");
+                            $(this).addClass("active"); 
+                        });
+                    });</script>
+            </div>
+
+
+
+
+        </main>
+    </div>
+</body>
+</html>

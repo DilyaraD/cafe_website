@@ -1,0 +1,178 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+}
+
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    padding-bottom: 90px;
+}
+
+.Sel__6 {
+    height: 600px;
+}
+
+.Sel__6-inf {
+    position: relative;
+    width: 60%;
+    left: 0%;
+    top: -250px;
+    color: white;
+    font-family: 'Rufina', serif;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.Sel__6 img {
+    width: 100%;
+}
+
+    .Sel__6-inf h1 {
+        font-size: 80px;
+        font-family: 'Rufina', serif;
+        margin-bottom: 20px;
+    }
+
+    .Sel__6-inf p {
+        font-family: 'Rufina', serif;
+        font-size: 24px;
+    }
+
+.Sel__6-hist {
+    font-family: 'Rufina', serif;
+    color: black;
+    font-size: 24px;
+    align-content: center;
+    margin-top: 10px;
+}
+
+    .Sel__6-hist img {
+        width: 700px;
+    }
+
+.textt {
+    width: 40%;
+    font-family: 'Rufina', serif;
+}
+
+.employee {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+    .employee .left {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .employee .right {
+        flex: 1;
+    }
+
+    .employee img {
+        width: 70%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+.left {
+    justify-content: center;
+    width: 70%;
+    margin-left: 10%;
+}
+
+    .left h2 {
+        align-items: center;
+        align-content: center;
+    }
+
+.employee p {
+    font-family: 'Rufina', serif;
+}
+
+.right {
+    font-family: 'Rufina', serif;
+    color: black;
+    font-size: 24px;
+    margin-top: 5%;
+    align-content: center;
+}
+
+.left img {
+    height: 80%;
+    width: 70%;
+}
+
+.right2 {
+    justify-content: center;
+    margin-right: 10%;
+}
+
+    .right2 h2 {
+        align-items: center;
+        align-content: center;
+    }
+
+.left2 {
+    font-family: 'Rufina', serif;
+    color: black;
+    font-size: 24px;
+    width: 70%;
+    margin-left: 10%;
+    margin-top: 5%;
+    align-content: center;
+}
+
+    .left2 img {
+        height: 60%;
+        width: 50%;
+    }
+
+.Kanape {
+    margin-top: 5%;
+    background-image: url("../images/ImageB.png");
+    color: white;
+    background-color: rgba(19, 48, 0, 0.8);
+    background-blend-mode: multiply;
+    background-size: cover;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5%;
+    font-style: italic;
+    font-family: 'Rufina', serif;
+}
+
+    .Kanape h1 {
+        font-family: 'Rufina', serif;
+        font-style: italic;
+        margin: 0 auto;
+    }
+
+.Meat {
+    font-family: 'Rufina', serif;
+    align-items: center;
+    text-align: center;
+    font-size: 26px;
+}
+
+    .Meat img {
+        width: 55%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }

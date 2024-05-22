@@ -1,0 +1,101 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+}
+
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main {
+    max-width: 1600px;
+    margin: 0 auto; 
+    padding: 0 20px; 
+    padding-bottom: 90px;
+}
+
+.sel__1 {
+    height: 650px;
+}
+
+.sel__1-inf {
+    position: relative;
+    width: 50%;
+    left: %;
+    top: -300px;
+    color: white;
+    font-family: 'Rufina', serif;
+    font-style: italic;
+    font-weight: 300;
+}
+
+    .sel__1-inf h1 {
+        font-size: 80px;
+        font-family: 'Rufina', serif;
+    }
+
+.sel__1 img {
+    width: 100%;
+}
+.sec__1-tb {
+    font-size: 22px;
+    font-family: 'Rufina', serif;
+    margin-top: 30px;
+    border: none;
+    margin-left: 3%;
+}
+
+.sec__2 {
+    height: 900px;
+    position: relative;
+    font-family: 'Rufina', serif;
+    color: black;
+    font-size: 24px;
+}
+
+    .sec__2 table {
+        margin: 0 auto;
+    }
+
+.sec__1-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contact {
+    font-family: 'Rufina', serif;
+    font-size: 26px;
+}
+    .contact h1 {
+        font-family: 'Rufina', serif;
+        margin-bottom: 35px;
+    }
+
+.Address button {
+    padding: 15px 20px;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'Rufina', serif;
+    color: black;
+    font-size: 24px;
+}
+
+.contact span {
+    color: #9CAA00;
+}
+
+.Address p {
+    font-size: 24px;
+    font-family: 'Rufina', serif;
+    color: black;
+}
+
+.pyst {
+    width: 140px;
+}

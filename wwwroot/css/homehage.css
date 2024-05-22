@@ -1,0 +1,240 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+}
+
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main {
+    max-width: 1600px;
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+.selector__1 {
+    height: 800px;
+    background-color: #EBF0E4;
+}
+
+.selector__1-leaf1 {
+    position: absolute;
+}
+
+    .selector__1-leaf1 img {
+        width: 200px;
+        margin-top: 35%;
+        margin-left: 80%;
+    }
+
+.selector__1-man {
+    position: relative;
+}
+
+    .selector__1-man img {
+        width: 650px;
+        margin-top: 13.8%;
+        margin-right: 50%;
+    }
+
+.selector__1-inf {
+    font-family: 'Rufina', serif;
+    font-style: italic;
+    font-weight: 300;
+    width: 40%;
+    position: relative;
+    bottom: 85%;
+    left: 50%;
+}
+
+    .selector__1-inf h1 {
+        font-family: 'Rufina', serif;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 70px;
+    }
+
+    .selector__1-inf p {
+        font-family: 'Rufina', serif;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 20px;
+    }
+
+.selector__1-leaf2 {
+    position: relative;
+    top: -80%;
+    right: -20%;
+    transform: scale(-1, 1);
+}
+
+    .selector__1-leaf2 img {
+        width: 300px;
+    }
+
+.selector__2 {
+    height: 600px;
+}
+
+.selector__2-tb {
+    margin: 0 auto; 
+    position: relative;
+    top: 15%;
+}
+
+    .selector__2-tb table {
+        margin: 0 auto; 
+    }
+
+.selector__2-td_first,
+.selector__2-td_second,
+.selector__2-td_third {
+    width: 350px;
+    font-family: 'Rufina', serif;
+    font-style: italic;
+    font-weight: 300;
+    text-align: center;
+    margin-right: 40px;
+}
+
+    .selector__2-td_first img,
+    .selector__2-td_second img,
+    .selector__2-td_third img {
+        width: 200px;
+        margin-bottom: 40px;
+    }
+
+    .selector__2-td_first h1,
+    .selector__2-td_second h1,
+    .selector__2-td_third h1 {
+        margin-bottom: 30px;
+    }
+
+    .selector__2-td_first p,
+    .selector__2-td_second p,
+    .selector__2-td_third p {
+        color: #4D4D4D;
+    }
+
+.selector__3 {
+    height: 270px;
+    font-family: 'Rufina', serif;
+    font-style: italic;
+    font-weight: 300;
+    margin-top: 500px;
+}
+
+    .selector__3 img {
+        position: relative;
+        left: 25%;
+        top: -200%;
+    }
+
+.selector__3-inf {
+    position: relative;
+    bottom: 270%;
+    text-align: left;
+    left: 10%;
+}
+
+    .selector__3-inf h1 {
+        font-size: 70px;
+        margin-bottom: 15px;
+    }
+
+    .selector__3-inf p {
+        color: #4D4D4D;
+    }
+
+.selector__3-tb {
+    margin-top: -50%;
+}
+
+    .selector__3-tb table {
+        border-spacing: 60px;
+        margin: auto;
+    }
+
+    .selector__3-tb h3 {
+        text-align: right;
+    }
+
+    .selector__3-tb h1, selector__3-tb p {
+        text-align: left;
+    }
+
+    .selector__3-tb p {
+        color: #4D4D4D;
+        text-align: left;
+    }
+
+    .selector__3-tb td {
+        padding-right: 20px;
+    }
+
+.selector__3-nav {
+    position: relative;
+    left: 19%;
+    bottom: -3%;
+    cursor: pointer;
+}
+
+.selector__4 {
+    position: relative;
+    bottom: 20%;
+    height: 900px;
+}
+
+.selector__4-img {
+    position: relative;
+    width: 500px;
+    left: 7%;
+    top: -15%;
+}
+
+.selector__4-inf-1 {
+    font-family: 'Rufina', serif;
+    font-style: italic;
+    font-weight: 300;
+    position: relative;
+    width: 600px;
+    left: 5%;
+    top: -20%;
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+
+    .selector__4-inf-1 img {
+        margin-top: 150px;
+        width: 600px;
+        margin-bottom: 20px;
+    }
+
+    .selector__4-inf-1 h1 {
+        font-size: 36px;
+        text-align: left;
+    }
+
+.selector__4-inf-2 {
+    font-family: 'Rufina', serif;
+    font-style: italic;
+    font-weight: 300;
+    position: relative;
+    width: 400px;
+    top: -80%;
+    left: 60%;
+    margin-bottom: 20px;
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+
+    .selector__4-inf-2 img {
+        width: 400px;
+    }
